@@ -8,13 +8,13 @@ const PAGE_SIZE = 8
 export const useProducts = () => {
   const dispatch = useAppDispatch()
   const router = useRouter()
-  const { isAuthenticated } = useAppSelector(s => s.auth)
+  const { isAuthenticated, redirectLoading } = useAppSelector(s => s.auth)
   const { filteredItems, loading, error, page, hasMore } = useAppSelector(s => s.products)
 
   // Redirect to login if not authenticated
-  // useEffect(() => {
-  //   if (!isAuthenticated) router.push("/login");
-  // }, [isAuthenticated, router]);
+  useEffect(() => {
+    if (!isAuthenticated && !redirectLoading) router.push('/login')
+  }, [isAuthenticated, router])
 
   // Initial data fetch
   useEffect(() => {

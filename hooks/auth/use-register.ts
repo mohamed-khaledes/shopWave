@@ -6,7 +6,7 @@ import { registerUser, clearError } from '@/store/authSlice'
 export const useRegister = () => {
   const dispatch = useAppDispatch()
   const router = useRouter()
-  const { loading, error, isAuthenticated } = useAppSelector(s => s.auth)
+  const { loading, error, isAuthenticated, redirectLoading } = useAppSelector(s => s.auth)
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -14,7 +14,7 @@ export const useRegister = () => {
   const [showPassword, setShowPassword] = useState(false)
 
   useEffect(() => {
-    if (isAuthenticated) router.push('/products')
+    if (isAuthenticated && !redirectLoading) router.push('/products')
   }, [isAuthenticated, router])
 
   useEffect(() => {
