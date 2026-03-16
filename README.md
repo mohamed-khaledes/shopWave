@@ -100,6 +100,7 @@ shopwave/
 │   ├── register/page.tsx
 │   ├── products/page.tsx            # Grid + infinite scroll
 │   ├── products/[id]/page.tsx       # Detail page
+│   ├── cart                         # cart page
 │   └── layout.tsx
 ├── store/
 │   ├── authSlice.ts                 # Login/register/logout
@@ -108,9 +109,14 @@ shopwave/
 ├── components/
 │   ├── layout/Navbar.tsx
 │   └── products/ProductCard, SearchFilter, ProductSkeleton
+│   └── cart/index, cart-row, empty-cart, order-summary
+│   └── auth/login, register
 ├── hooks/
 │   ├── redux.ts                     # Typed dispatch/selector
 │   └── useIntersectionObserver.ts   # Infinite scroll
+│   └── products/use-products.ts , use-single-products.ts
+│   └── auth/use-login.ts, use-register.ts
+│   └── cart/use-cart.ts 
 ├── lib/
 │   ├── auth.ts                      # Cookie + localStorage
 │   ├── apiClient.ts                 # Axios + interceptors
@@ -146,3 +152,7 @@ shopwave/
 
 Next.js 16 · TypeScript · Tailwind CSS · Redux Toolkit · Axios · jsonwebtoken · js-cookie · Jest ·
 Lucide React
+
+---
+### Live Demo
+https://shop-wav.vercel.app/
